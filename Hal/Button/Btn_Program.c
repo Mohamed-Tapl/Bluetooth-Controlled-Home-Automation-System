@@ -1,0 +1,37 @@
+/*
+ * Btn_Program.c
+ *
+ *  Created on: Oct 15, 2026
+ *      Author: Mohamed Tapl
+ */
+
+
+
+#include "../../Common/Config.h"
+
+#if Button_Driver
+#include "Btn_Interface.h"
+void BTN_Init(uint8_t BtnGroup,uint8_t BtnPin,uint8_t BtnConnection)
+{
+    DIO_DirectionSelectForPin(BtnGroup,BtnPin,DIO_Input);
+    if(BtnConnection==Btn_InternalPullup)
+    {
+        DIO_InternalPullUpControl(BtnGroup,BtnPin,Enable);
+    }
+    else
+    {
+        DIO_InternalPullUpControl(BtnGroup,BtnPin,Disable);
+    }
+
+}
+
+uint8_t BTN_GetState(uint8_t BtnGroup,uint8_t BtnPin,uint8_t BtnConnection)
+{
+    uint8_t BtnState=0;
+    DIO_ReadInputForPin(BtnGroup,BtnPin,&BtnState);
+    return BtnState;
+}
+
+
+
+#endif// Button_Driver

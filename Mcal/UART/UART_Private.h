@@ -1,0 +1,66 @@
+/*
+ * UART_Private.h
+ *
+ *  Created on: Nov 10, 2026
+ *      Author: Mohamed Tapl
+ */
+
+#ifndef MCAL_UART_UART_PRIVATE_H_
+#define MCAL_UART_UART_PRIVATE_H_
+
+
+#include "../Atmega32Registers.h"
+
+
+#define UDR_Reg       _SetAddress8bit(0x2C)
+#define UCSRA_Reg     _SetAddress8bit(0x2B)
+#define UCSRB_Reg     _SetAddress8bit(0x2A)
+#define UCSRC_Reg     _SetAddress8bit(0x40)
+#define UBRRH_Reg     _SetAddress8bit(0x40)
+#define UBRRL_Reg     _SetAddress8bit(0x29)
+
+
+#define UCSRA_RXC     7
+#define UCSRA_TXC     6
+#define UCSRA_UDRE    5
+#define UCSRA_FE      4
+#define UCSRA_DOR     3
+#define UCSRA_PE      2
+#define UCSRA_U2X     1
+#define UCSRA_MPCM    0
+
+
+#define UCSRB_RXCIE   7
+#define UCSRB_TXCIE   6
+#define UCSRB_UDRIE   5
+#define UCSRB_RXEN    4
+#define UCSRB_TXEN    3
+#define UCSRB_UCSZ2   2
+#define UCSRB_RXB8    1
+#define UCSRB_TXB8    0
+
+
+#define UCSRC_URSEL   7
+#define UCSRC_UMSEL   6
+#define UCSRC_UPM1    5
+#define UCSRC_UPM0    4
+#define UCSRC_USBS    3
+#define UCSRC_UCSZ1   2
+#define UCSRC_UCSZ0   1
+#define UCSRC_UCPOL   0
+
+
+#define UART_PARITY_DISABLE    0
+#define UART_PARITY_EVEN       1
+#define UART_PARITY_ODD        2
+
+#define UART_STOP_1_BIT        0
+#define UART_STOP_2_BIT        1
+
+#define UART_DATA_5_BIT        0
+#define UART_DATA_6_BIT        1
+#define UART_DATA_7_BIT        2
+#define UART_DATA_8_BIT        3
+
+
+#endif /* MCAL_UART_UART_PRIVATE_H_ */
